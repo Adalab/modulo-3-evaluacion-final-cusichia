@@ -5,10 +5,11 @@ function Header() {
 
     <>
     {/* <img src={logo} alt="Hogwarts logo" /> */}
-    <h1>Explora y Filtra los Personajes del Mundo de Harry Potter</h1>
-    <p>Si tú también esperabas tu carta de Hogwarts a los 11 y jurabas que un día te llegaría por lechuza, estás en el lugar correcto.</p>
+    <h1>Discover and Sort the Magical Characters of Harry Potter</h1>
+    <p>Still waiting for your Hogwarts letter to arrive by owl? Don’t worry — so are we! While you wait, dive into the wizarding world and explore your favorite magical misfits, heroes, and villains.</p>
+    <p>Just a heads-up: not everyone’s made it big enough to have their own photo — even in the wizarding world, fame is fickle!</p>
     </>
-
+    
   )
 }
 

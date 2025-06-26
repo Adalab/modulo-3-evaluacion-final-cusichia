@@ -1,18 +1,21 @@
+import CharacterItem from "./CharacterItem"
 
-function CharacterList() {
+function CharacterList({ pcharacterList }) {
+
   return (
     <>
     <main>
         {/* character list */}
         <ul>
-            {/* {
-                pcontactsList.map((item, index) =>
-                    <ItemContact key={index} pitem={item} />
+            {
+                pcharacterList.map(character => (
+                   <CharacterItem character={character} key={character.id}/>
                 )
-            } */}
+
+            )}
         </ul>
     </main >
-</>
+    </>
   )
 }
 
