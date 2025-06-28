@@ -1,14 +1,14 @@
 
-function Filters( { psearchName, psetSearchName, phogwartsHouses, psearchHouse , psetSearchHouse } ) {
+function Filters( { searchName, setSearchName, hogwartsHouses, searchHouse , setSearchHouse } ) {
 
     const handleName = (ev) => {
         ev.preventDefault();
-        psetSearchName(ev.target.value);
+        setSearchName(ev.target.value);
     }
 
     const handleHouse = (ev) => {
         ev.preventDefault();
-        psetSearchHouse(ev.target.value);
+        setSearchHouse(ev.target.value);
     }
 
   return (
@@ -21,7 +21,7 @@ function Filters( { psearchName, psetSearchName, phogwartsHouses, psearchHouse ,
                 ame="search" 
                 id="search" 
                 placeholder="Your favorite or least favotire character... "
-                value={psearchName}
+                value={searchName}
                 onChange={handleName}
             />
         </div>
@@ -30,11 +30,11 @@ function Filters( { psearchName, psetSearchName, phogwartsHouses, psearchHouse ,
             <select 
                 name="house" 
                 id="house"
-                value={psearchHouse}
+                value={searchHouse}
                 onChange={handleHouse}
             >
                 <option value="">  Select a house  </option>
-                {phogwartsHouses.map((house, index) => (
+                {hogwartsHouses.map((house, index) => (
                     <option key={index} value={house}>{house}</option>
                 ))}
             </select>

@@ -1,14 +1,14 @@
 import CharacterItem from "./CharacterItem"
 
-function CharacterList({ pcharacterList }) {
+function CharacterList({ characterList }) {
 
   return (
     <>
     <main>
         {/* character list */}
-        <ul>
+        <ul className="characterList">
             {
-                pcharacterList.map(character => (
+                characterList.map(character => (
                    <CharacterItem character={character} key={character.id}/>
                 )
 

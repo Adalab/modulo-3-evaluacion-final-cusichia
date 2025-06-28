@@ -4,6 +4,11 @@ import './styles/App.scss';
 import Header from './components/layout/Header';
 import Filters from './components/Filters';
 import CharacterList from './components/Characters/CharacterList';
+import CharacterDetail from './components/Characters/CharacterDetail';
+import Landing from './components/layout/Landing';
+import Footer from './components/layout/Footer';
+import Error404 from './components/Error404';
+import { Routes, Route } from 'react-router';
 
 function App() {
 
@@ -21,7 +26,6 @@ function App() {
   }, [])
 
   const hogwartsHouses = [...new Set(characterList.map(character => character.house))];
-  console.log(hogwartsHouses);
 
   //filtro sobre lista personajes
   const filteredList = characterList
@@ -29,13 +33,22 @@ function App() {
   .filter(character => character.house === searchHouse || searchHouse === "");
   
 
-  return (
-    <>
-    <Header/>
-    <Filters psearchName={searchName} psetSearchName={setSearchName} phogwartsHouses={hogwartsHouses} psearchHouse={searchHouse} psetSearchHouse={setSearchHouse}/>
-    <CharacterList pcharacterList={filteredList}/>
-    </>
-  )
+    return (
+      <>
+      <Header/>
+
+      <Routes>
+
+        <Route index element={ <Landing searchName={searchName} setSearchName={setSearchName} hogwartsHouses={hogwartsHouses} searchHouse={searchHouse} setSearchHouse={setSearchHouse} characterList={filteredList}/> }/>
+        <Route path="/detail/:name" element={ <CharacterDetail characterList={characterList}/> } />
+        <Route path="*" element={<Error404/>} />
+
+      </Routes>
+
+      <Footer/>
+
+      </>
+    )
 }
 
 export default App;
