@@ -11,16 +11,23 @@ function Filters( { searchName, setSearchName, hogwartsHouses, searchHouse , set
         setSearchHouse(ev.target.value);
     }
 
+    const handleReset = (ev) => {
+        ev.preventDefault();
+        setSearchName('');
+        setSearchHouse('');
+    }
+
   return (
     <>
-    <form action="">
+    <form className="filters__form" action="">
         <div>
             <label>Search by name: </label>
             <input 
+                className="filters__input"
                 type="text" 
                 ame="search" 
                 id="search" 
-                placeholder="Your favorite or least favotire character... "
+                placeholder="Your search here..."
                 value={searchName}
                 onChange={handleName}
             />
@@ -28,6 +35,7 @@ function Filters( { searchName, setSearchName, hogwartsHouses, searchHouse , set
         <div>
             <label>Search by house: </label>
             <select 
+                className="filters__select"
                 name="house" 
                 id="house"
                 value={searchHouse}
@@ -39,6 +47,7 @@ function Filters( { searchName, setSearchName, hogwartsHouses, searchHouse , set
                 ))}
             </select>
         </div>
+        <button className="filters__btnReset" onClick={handleReset}>Reset</button>
     </form>
     </>
   )

@@ -5,7 +5,9 @@ function CharacterList({ characterList }) {
   return (
     <>
     <main>
-        {/* character list */}
+      {characterList.length === 0 ? (
+          <h3 className="characterList__notFound">No character found with this name... <br/>Please try again.</h3>
+        ) : (
         <ul className="characterList">
             {
                 characterList.map(character => (
@@ -13,7 +15,8 @@ function CharacterList({ characterList }) {
                 )
 
             )}
-        </ul>
+        </ul>)
+      }
     </main >
     </>
   )

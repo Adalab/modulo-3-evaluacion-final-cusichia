@@ -2,8 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './styles/App.scss';
 import Header from './components/layout/Header';
-import Filters from './components/Filters';
-import CharacterList from './components/Characters/CharacterList';
 import CharacterDetail from './components/Characters/CharacterDetail';
 import Landing from './components/layout/Landing';
 import Footer from './components/layout/Footer';
@@ -39,7 +37,8 @@ function App() {
 
       <Routes>
 
-        <Route index element={ <Landing searchName={searchName} setSearchName={setSearchName} hogwartsHouses={hogwartsHouses} searchHouse={searchHouse} setSearchHouse={setSearchHouse} characterList={filteredList}/> }/>
+        <Route index element={ 
+          <Landing searchName={searchName} setSearchName={setSearchName} hogwartsHouses={hogwartsHouses} searchHouse={searchHouse} setSearchHouse={setSearchHouse} characterList={filteredList}/> }/>
         <Route path="/detail/:name" element={ <CharacterDetail characterList={characterList}/> } />
         <Route path="*" element={<Error404/>} />
 

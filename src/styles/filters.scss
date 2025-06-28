@@ -1,0 +1,42 @@
+.filters{
+    
+    &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    border-radius: 8px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    &__select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: #fff;
+    }
+
+    &__btnReset {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+    }
+}
