@@ -13,6 +13,8 @@ function App() {
   const [characterList, setCharacterList] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [searchHouse, setSearchHouse] = useState("");
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('darkMode') === 'true');
+
 
   //llamada API
   useEffect(() => {
@@ -30,22 +32,40 @@ function App() {
   .filter(character => character.name.toLowerCase().includes(searchName.toLowerCase()))
   .filter(character => character.house === searchHouse || searchHouse === "");
   
+  //Dark & Light Mode
+    useEffect(() => {
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+      localStorage.setItem('darkMode', isDark);
+    }, [isDark]);
+
+    const handleLightMode = () => setIsDark(false);
+    const handleDarkMode = () => setIsDark(true);
 
     return (
       <>
-      <Header/>
-
       <Routes>
 
         <Route index element={ 
-          <Landing searchName={searchName} setSearchName={setSearchName} hogwartsHouses={hogwartsHouses} searchHouse={searchHouse} setSearchHouse={setSearchHouse} characterList={filteredList}/> }/>
-        <Route path="/detail/:name" element={ <CharacterDetail characterList={characterList}/> } />
+          <>
+          <Header isDark={isDark} handleLightMode={handleLightMode} handleDarkMode={handleDarkMode}/>
+          <Landing searchName={searchName} setSearchName={setSearchName} hogwartsHouses={hogwartsHouses} searchHouse={searchHouse} setSearchHouse={setSearchHouse} characterList={filteredList}/>
+          <Footer/>
+          </>
+           }/>
+        <Route path="/detail/:name" element={ 
+          <>
+          <Header isDark={isDark} handleLightMode={handleLightMode} handleDarkMode={handleDarkMode}/>
+          <CharacterDetail characterList={characterList}/>
+          <Footer/>
+          </>
+          } />
         <Route path="*" element={<Error404/>} />
 
       </Routes>
-
-      <Footer/>
-
       </>
     )
 }

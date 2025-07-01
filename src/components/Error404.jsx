@@ -4,7 +4,9 @@ import HP404 from "../images/HP_404Error.png"
 function Error404() {
   return (
     <>
-    <img src={HP404} alt="Error 404: page not found" />
+    <div className="error404">
+      <img className="hp404" src={HP404} alt="Error 404: page not found" />
+    </div>
     </>
   )
 }

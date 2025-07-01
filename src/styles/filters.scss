@@ -1,4 +1,17 @@
 .filters{
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 60%;
+    
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content:space-around;
+        }
+    
+    }
     
     &__form {
     display: flex;
@@ -11,17 +24,17 @@
 
     &__input {
         width: 100%;
-        padding: 10px;
+        padding: 5px;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: 5px;
         font-size: 16px;
     }
 
     &__select {
         width: 100%;
-        padding: 10px;
+        padding: 5px;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: 5px;
         font-size: 16px;
         background-color: #fff;
     }
@@ -30,13 +43,17 @@
         padding: 10px 20px;
         background-color: #f0f0f0;
         border: none;
-        border-radius: 4px;
+        border-radius: 5px;
         font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
 
         &:hover {
             background-color: #e0e0e0;
         }
+
+        .dark-mode & {
+            background-color: #777777;
+            color: #e5e5e5;
+        }
+
     }
 }

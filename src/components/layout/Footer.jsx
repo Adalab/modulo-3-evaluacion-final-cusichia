@@ -1,7 +1,7 @@
 
 function Footer() {
   return (
-    <div>
+    <div className="footer__p">
       <p>© cusichia 2025 - todos los derechos reservados</p>
     </div>
   )

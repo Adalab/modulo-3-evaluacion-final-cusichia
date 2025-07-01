@@ -20,32 +20,34 @@ function Filters( { searchName, setSearchName, hogwartsHouses, searchHouse , set
   return (
     <>
     <form className="filters__form" action="">
-        <div>
-            <label>Search by name: </label>
-            <input 
-                className="filters__input"
-                type="text" 
-                ame="search" 
-                id="search" 
-                placeholder="Your search here..."
-                value={searchName}
-                onChange={handleName}
-            />
-        </div>
-        <div>
-            <label>Search by house: </label>
-            <select 
-                className="filters__select"
-                name="house" 
-                id="house"
-                value={searchHouse}
-                onChange={handleHouse}
-            >
-                <option value="">  Select a house  </option>
-                {hogwartsHouses.map((house, index) => (
-                    <option key={index} value={house}>{house}</option>
-                ))}
-            </select>
+        <div className="filters__group">
+            <div>
+                <label>Search by name: </label>
+                <input 
+                    className="filters__input"
+                    type="text" 
+                    ame="search" 
+                    id="search" 
+                    placeholder="Hermione..."
+                    value={searchName}
+                    onChange={handleName}
+                />
+            </div>
+            <div>
+                <label>Search by house: </label>
+                <select 
+                    className="filters__select"
+                    name="house" 
+                    id="house"
+                    value={searchHouse}
+                    onChange={handleHouse}
+                >
+                    <option value="">  Select a house  </option>
+                    {hogwartsHouses.map((house, index) => (
+                        <option key={index} value={house}>{house}</option>
+                    ))}
+                </select>
+            </div>
         </div>
         <button className="filters__btnReset" onClick={handleReset}>Reset</button>
     </form>
