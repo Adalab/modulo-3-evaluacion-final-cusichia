@@ -1,4 +1,4 @@
-import { useParams } from "react-router"
+import { useParams, Link } from "react-router"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faHouse, faHeart, faSkull, faFingerprint, faFilm , faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import GryImg from '../../images/Gryffindor.png';
@@ -13,15 +13,14 @@ function CharacterDetail({characterList}) {
 
   const character = characterList.find(character => character.name.toLowerCase() === name.toLowerCase());
 
-  const handleMenu = () => {
-    window.location.href = '/characters'; 
-  }
 
   return (
     <>
       <h2 className="characterDetail__h2">Character details</h2> 
       <div className="characterDetail__card">
-          <button className="filters__btnMenu" onClick={handleMenu}>Back <FontAwesomeIcon icon={faArrowLeft} /></button>
+          <Link className="filters__btnMenu" to="/">
+            Back <FontAwesomeIcon icon={faArrowLeft} />
+          </Link>
         <div className="characterDetail__container">
           <img className="characterDetail__container-houseImg"
                 src={
